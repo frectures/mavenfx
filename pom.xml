@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>prp2</groupId>
+	<artifactId>hello-world</artifactId>
+	<version>1.0.0</version>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>17.0.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- The POM would end here if the project followed Maven's Standard Directory Layout -->
+
+	<build>
+		<resources>
+			<resource>
+				<directory>resources</directory>
+			</resource>
+		</resources>
+
+		<sourceDirectory>${project.basedir}/src</sourceDirectory>
+		<scriptSourceDirectory>${project.build.sourceDirectory}</scriptSourceDirectory>
+		<testSourceDirectory>${project.build.sourceDirectory}</testSourceDirectory>
+
+		<directory>${project.basedir}/bin</directory>
+		<outputDirectory>${project.build.directory}</outputDirectory>
+		<testOutputDirectory>${project.build.directory}</testOutputDirectory>
+
+		<finalName>${project.groupId}_${project.artifactId}</finalName>
+	</build>
+
+</project>
