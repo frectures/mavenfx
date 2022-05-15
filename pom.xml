@@ -46,6 +46,34 @@
 		<testOutputDirectory>${project.build.directory}</testOutputDirectory>
 
 		<finalName>${project.groupId}_${project.artifactId}</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<!-- DONT compile tests during default-compile -->
+					<excludes>
+						<exclude>**/*Test.java</exclude>
+					</excludes>
+					<!-- ONLY compile tests during default-testCompile -->
+					<testIncludes>
+						<include>**/*Test.java</include>
+					</testIncludes>
+				</configuration>
+			</plugin>
+
+			<!-- Want to run your JavaFX application from the terminal? mvn clean javafx:run -->
+			<plugin>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>0.0.8</version>
+				<configuration>
+					<mainClass>Main</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 
 </project>
